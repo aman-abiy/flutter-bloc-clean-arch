@@ -1,0 +1,27 @@
+name: flutter_bloc_clean_arch
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  dio: ^4.0.0
+  equatable: ^2.0.5
+  dio_http_cache: ^0.3.0
+  flutter_lints: ^3.0.0
+  dartz: ^0.10.1
+
+flutter:
+  uses-material-design: true
+
