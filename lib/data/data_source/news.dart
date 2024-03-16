@@ -32,7 +32,7 @@ class NewsDataSource {
           forceRefresh: true
         );
 
-        news.add(customHttpResponse2.data);
+        news.add(NewsDTO.fromJson(customHttpResponse2.data));
       });
     }
 

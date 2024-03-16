@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc_clean_arch/common/api.dart';
+import 'package:flutter_bloc_clean_arch/common/consts.dart';
 
 class CacheManagerService extends ChangeNotifier {
   bool hasConnection = true;
