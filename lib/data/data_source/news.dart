@@ -1,13 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter_bloc_clean_arch/common/api.dart';
 import 'package:flutter_bloc_clean_arch/data/dtos/Custom_Http_Response.dart';
 import 'package:flutter_bloc_clean_arch/data/enums/request_methods.dart';
 import 'package:flutter_bloc_clean_arch/data/models/News_Dto.dart';
 import 'package:flutter_bloc_clean_arch/data/network/network.dart';
 
-class NewsDataSource {
+abstract class NewsDataSource {
+  FutureOr<List<NewsDTO>> getNewsList();
+}
+
+class NewsDataSourceImpl extends NewsDataSource{
 
   CustomHttpResponse customHttpResponse = CustomHttpResponse();
 
+  @override
   Future<List<NewsDTO>> getNewsList() async {
     List<NewsDTO> news = [];
     
