@@ -1,4 +1,10 @@
-abstract class NewsEvent {}
+import 'package:equatable/equatable.dart';
 
-class TopNewsRequested extends NewsEvent{}
+abstract class NewsEvent extends Equatable {}
+
+class TopNewsRequested extends NewsEvent{
+  @override
+
+  List<Object?> get props => [];
+}
 
