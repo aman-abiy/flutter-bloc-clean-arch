@@ -80,12 +80,8 @@ class NetworkHandler {
 
       Map<String, dynamic> data = {
         'statusCode': response.statusCode,
-        'status': response.data['status'],
-        'data': response.data['data'],
-        'sessionToken': response.data['sessionToken'],
-        'header': response.headers,
-        'errors': response.statusMessage,
-        'meta': response.data['metaData']
+        'status': true,
+        'data': response.data,
       };
 
 

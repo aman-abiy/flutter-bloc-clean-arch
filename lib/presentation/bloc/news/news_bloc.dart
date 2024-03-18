@@ -44,7 +44,6 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       );
     } catch (e) {
       emit(GeneralErrorState(e.toString()));
-
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc_clean_arch/injection.dart' as di;
 import 'package:flutter_bloc_clean_arch/presentation/bloc/news/news_bloc.dart';
 import 'package:flutter_bloc_clean_arch/presentation/pages/News.dart';
@@ -22,14 +23,21 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => di.locator<NewsBloc>()
         ),
       ],
-      child: MaterialApp.router(
-        title: 'Tech News',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        routerConfig: router
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp.router(
+            title: 'Tech News',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            routerConfig: router
+          );
+        }
       ),
     );
   }

@@ -4,7 +4,7 @@ class NewsDTO {
     late int id;
     late String by;
     late int descendants;
-    late List<int> kids;
+    late List<dynamic>? kids;
     late int score;
     late int time;
     late String title;

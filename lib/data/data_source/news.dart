@@ -19,19 +19,7 @@ class NewsDataSourceImpl extends NewsDataSource{
     List<NewsDTO> news = [];
     
     customHttpResponse = await NetworkHandler().request(
-      url: URLs.TOP_NEWS_URL,
-      method: RequestMethod.GET,
-      headers: null,
-      queryParams: null,
-      body: null,
-      forceRefresh: true
-    );
-
-    if(customHttpResponse.status!) {
-      CustomHttpResponse customHttpResponse2 = CustomHttpResponse();
-      customHttpResponse.data.forEach((e) async {
-        customHttpResponse2 = await NetworkHandler().request(
-          url: '${URLs.NEWS_DETAIL_URL}/${e}.json',
+          url: '${URLs.NEWS_DETAIL_URL}/39727280.json',
           method: RequestMethod.GET,
           headers: null,
           queryParams: null,
@@ -39,8 +27,21 @@ class NewsDataSourceImpl extends NewsDataSource{
           forceRefresh: true
         );
 
-        news.add(NewsDTO.fromJson(customHttpResponse2.data));
-      });
+    if(customHttpResponse.status!) {
+      // CustomHttpResponse customHttpResponse2 = CustomHttpResponse();
+      // customHttpResponse.data.take(10).toList().forEach((e) async {
+      //   customHttpResponse2 = await NetworkHandler().request(
+      //     url: '${URLs.NEWS_DETAIL_URL}/39727280.json',
+      //     method: RequestMethod.GET,
+      //     headers: null,
+      //     queryParams: null,
+      //     body: null,
+      //     forceRefresh: true
+      //   );
+      //   print('customHttpResponse2 ${customHttpResponse2.data}');
+
+        news.add(NewsDTO.fromMap(customHttpResponse.data));
+      // });
     }
 
     return news;
